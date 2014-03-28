@@ -1,18 +1,18 @@
 //
-//  CredentialViewController.m
+//  LoginViewController.m
 //  Twitter
 //
 //  Created by Tripta Gupta on 3/27/14.
 //  Copyright (c) 2014 Tripta Gupta. All rights reserved.
 //
 
-#import "CredentialViewController.h"
+#import "LoginViewController.h"
 
-@interface CredentialViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation CredentialViewController
+@implementation LoginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -1,5 +1,5 @@
 //
-//  CredentialViewController.h
+//  LoginViewController.h
 //  Twitter
 //
 //  Created by Tripta Gupta on 3/27/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CredentialViewController : UIViewController
+@interface LoginViewController : UIViewController
 
 @end
