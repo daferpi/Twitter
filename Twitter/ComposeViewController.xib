@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController">
             <connections>
+                <outlet property="nameLabel" destination="yIc-6D-2i5" id="I4C-g8-JxO"/>
+                <outlet property="profileImageView" destination="lZa-FY-mdX" id="z9X-RN-jfr"/>
+                <outlet property="twitterHandleLabel" destination="gA6-iz-Cne" id="8lF-Jl-t1t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

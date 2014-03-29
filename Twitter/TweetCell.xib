@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qby-sP-QGV">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qby-sP-QGV">
                         <rect key="frame" x="9" y="8" width="48" height="48"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
@@ -21,20 +21,20 @@
                             <constraint firstAttribute="height" constant="48" id="VJy-6q-eag"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tripta Gupta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vy-PX-zcR">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tripta Gupta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vy-PX-zcR">
                         <rect key="frame" x="70" y="13" width="91" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@triptagupta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypc-Qx-MV5">
-                        <rect key="frame" x="147" y="12" width="91" height="18"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="@triptagupta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypc-Qx-MV5">
+                        <rect key="frame" x="169" y="12" width="91" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2 hrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCJ-1I-wxd">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="2 hrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCJ-1I-wxd">
                         <rect key="frame" x="270" y="13" width="30" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -47,6 +47,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="yCJ-1I-wxd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="3t9-rM-lQ5"/>
+                    <constraint firstItem="qby-sP-QGV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="4Z1-bf-7FO"/>
+                    <constraint firstItem="5vy-PX-zcR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="7sR-U0-W3m"/>
+                    <constraint firstItem="yCJ-1I-wxd" firstAttribute="leading" secondItem="ypc-Qx-MV5" secondAttribute="trailing" constant="25" id="J2e-ou-oNV"/>
+                    <constraint firstItem="5vy-PX-zcR" firstAttribute="baseline" secondItem="yCJ-1I-wxd" secondAttribute="baseline" id="Qq5-OC-bGs"/>
+                    <constraint firstItem="5vy-PX-zcR" firstAttribute="leading" secondItem="qby-sP-QGV" secondAttribute="trailing" constant="8" id="SF5-X6-0ws"/>
+                    <constraint firstItem="5vy-PX-zcR" firstAttribute="baseline" secondItem="ypc-Qx-MV5" secondAttribute="baseline" id="eG5-hm-v0Y"/>
+                    <constraint firstItem="ypc-Qx-MV5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="iFb-cF-6Hu"/>
+                    <constraint firstItem="qby-sP-QGV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="yFE-ly-dDP"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="nameLabel" destination="5vy-PX-zcR" id="MON-YQ-Icz"/>
@@ -56,9 +67,5 @@
                 <outlet property="twitterHandleLabel" destination="ypc-Qx-MV5" id="De9-Lw-thH"/>
             </connections>
         </tableViewCell>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lgn-kq-RqI">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-        </imageView>
     </objects>
 </document>

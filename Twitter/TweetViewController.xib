@@ -6,6 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TweetViewController">
             <connections>
+                <outlet property="nameLabel" destination="aNb-va-htC" id="Eqe-O2-3Df"/>
+                <outlet property="profileImageView" destination="Dog-e0-L7W" id="uqM-UG-OOz"/>
+                <outlet property="timestampLabel" destination="XVc-oS-G4P" id="MFJ-M5-efV"/>
+                <outlet property="tweetStatusLabel" destination="NHl-Le-Aqj" id="8V7-D1-Bz6"/>
+                <outlet property="userNameLabel" destination="gNz-95-4CB" id="mnJ-30-ABR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
