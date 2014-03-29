@@ -7,6 +7,9 @@
 //
 
 #import "ComposeViewController.h"
+#import "User.h"
+#import <UIImageView+AFNetworking.h>
+//#import "TwitterClient.h"
 
 @interface ComposeViewController ()
 
@@ -18,7 +21,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
@@ -26,13 +29,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelButton)];
+    self.navigationItem.rightBarButtonItem = [[UIbarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonSystemItemDone target:self action:@selector(onDoneButton)];
 }
+
+- (void)onCancelButton
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)onDoneButton
+{
+    NSLog(@"onDoneButton");
+}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
