@@ -75,7 +75,7 @@
 }
 
 // Fires when the app is called from a URL
-// Generally from the callback of [TwitterClient login]
+// From the callback of [TwitterClient login]
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
@@ -91,8 +91,7 @@
             NSDictionary *parameters = [url dictionaryFromQueryString];
             if (parameters[@"oauth_token"] && parameters[@"oauth_verifier"]) {
                 
-                
-                // Out singleton friend
+                // Singleton
                 TwitterClient *client = [TwitterClient instance];
                 
                 // Requests access token using a request token
