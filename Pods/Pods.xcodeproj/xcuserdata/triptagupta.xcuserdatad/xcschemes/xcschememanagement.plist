@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-AFOAuth1Client.xcscheme</key>
+		<key>Pods-BDBOAuth1Manager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38A900ED42194915B3714550</key>
+		<key>0EAEBA0FDB394C2EA1332E53</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3B75AC088194109BC3BA8BE</key>
+		<key>B9E006FC9A174246988FF58C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E15220D5B8944B62B2232A86</key>
+		<key>BC043965A1B249708BD35296</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EC298F5EFD4943C88B7B535D</key>
+		<key>E1735DD5C5D8465F8E4F738C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,13 +7,41 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginViewController.h"
+#import "TwitterClient.h"
+
+@implementation NSURL (dictionaryFromQueryString)
+
+- (NSDictionary *)dictionaryFromQueryString
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    NSArray *pairs = [[self query] componentsSeparatedByString:@"&"];
+    
+    for(NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dictionary setObject:val forKey:key];
+    }
+    
+    return dictionary;
+}
+
+@end
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    self.window.rootViewController = loginViewController;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -44,6 +72,51 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// Fires when the app is called from a URL
+// Generally from the callback of [TwitterClient login]
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    // Checks the protocol handler
+    if ([url.scheme isEqualToString:@"cptwitter"])
+    {
+        // Checks the route of the handler
+        if ([url.host isEqualToString:@"oauth"])
+        {
+            // Create dictionaty from params in url string
+            NSDictionary *parameters = [url dictionaryFromQueryString];
+            if (parameters[@"oauth_token"] && parameters[@"oauth_verifier"]) {
+                
+                
+                // Out singleton friend
+                TwitterClient *client = [TwitterClient instance];
+                
+                // Requests access token using a request token
+                [client fetchAccessTokenWithPath:@"/oauth/access_token" method:@"POST" requestToken:[BDBOAuthToken tokenWithQueryString:url.query] success:^(BDBOAuthToken *accessToken) {
+                    NSLog(@"Access token received");
+                    NSLog(@"Here's your access token: %@", accessToken);
+                    [client.requestSerializer saveAccessToken:accessToken];
+                    
+                    // Calling the homeTimeline API method
+                    [client homeTimeLineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        NSLog(@"JSON: %@", responseObject);
+                        
+                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        NSLog(@"Response fail: %@", error);
+                    }];
+                    
+                } failure:^(NSError *error) {
+                    NSLog(@"Can't pass without a token)");
+                }];
+            }
+        }
+        return YES;
+    }
+    return NO;
 }
 
 @end

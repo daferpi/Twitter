@@ -7,10 +7,12 @@
 //
 
 #import "LoginViewController.h"
+#import "TwitterClient.h"
 
 @interface LoginViewController ()
 
 - (void)onError;
+- (IBAction)onLogin:(id)sender;
 
 @end
 
@@ -43,6 +45,12 @@
 - (void)onError
 {
     NSLog(@"Error");
+}
+
+- (IBAction)onLogin:(id)sender
+{
+    NSlog(@"Login Button Pressed");
+    [[TwitterClient instance] login];
 }
 
 @end
