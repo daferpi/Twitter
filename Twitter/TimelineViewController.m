@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
 
 - (void)onSignOutButton;
 - (void)reload;
@@ -39,9 +41,13 @@
     UINib *customNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:customNib forCellReuseIdentifier:@"TweetCell"];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(onSignOutButton)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(onComposeButton)];
     
+    //Refresh Control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.refreshControl];
 }
 
 #pragma mark - Table view data source
@@ -96,6 +102,12 @@
 - (void)onComposeButton
 {
     
+}
+
+- (void)refreshView
+{
+    
+    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
