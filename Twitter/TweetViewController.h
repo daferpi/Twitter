@@ -11,4 +11,6 @@
 
 @interface TweetViewController : UIViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil andModel:(Tweet *)tweet bundle:(NSBundle *)nibBundleOrNil;
+
 @end
