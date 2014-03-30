@@ -17,6 +17,9 @@
 
 @implementation ComposeViewController
 
+@synthesize in_reply_to_status_id;
+@synthesize current_status;
+
 -(id)initWithNibName:(NSString *)nibNameOrNil andStatus:(NSString *)status bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,7 +52,11 @@
     else {
         self.statusTextView.text = self.current_status;
     }
-
+    
+//    [self.profileImageView setImageWithURL:[NSURL URLWithString: [[User currentUser] profile_image_url]]];
+//    self.twitterHandleLabel.text = [[User currentUser] screen_name];
+//    self.nameLabel.text = [[User currentUser] name];
+    
     [self.statusTextView becomeFirstResponder];
 }
 
@@ -83,7 +90,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Twitter hates this update so much it's blocking your post: %@", error);
     }];
-    //    }
 }
 - (void)didReceiveMemoryWarning
 {

@@ -81,13 +81,6 @@
     [self GET:@"1.1/statuses/home_timeline.json" parameters:params success:success failure:failure];
 }
 
-
-- (AFHTTPRequestOperation *)getUserWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-    
-    return [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:success failure:failure];
-}
-
 - (void)updateStatus:(NSString *)status success:(void (^)(AFHTTPRequestOperation *operation, id response))success
              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];

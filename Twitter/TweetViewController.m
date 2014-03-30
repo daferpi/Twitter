@@ -22,10 +22,15 @@
 
 @property (nonatomic, weak) Tweet *currentTweet;
 
+- (IBAction)onReply:(id)sender;
+- (IBAction)onRetweet:(id)sender;
+- (IBAction)onFavorite:(id)sender;
 
 @end
 
 @implementation TweetViewController
+
+@synthesize currentTweet;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil andModel:(Tweet *)tweet bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,7 +48,7 @@
     self.tweetStatusLabel.text = currentTweet.tweet_text;
     self.nameLabel.text = currentTweet.name;
     self.userNameLabel.text = currentTweet.twitter_handle;
-    self.timeStampLabel.text = currentTweet.timestamp;
+    self.timestampLabel.text = currentTweet.timestamp;
     
     [self.profileImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:currentTweet.profile_image_url]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         self.profileImageView.image = image;
@@ -56,6 +61,36 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (IBAction)onFavorite:(id)sender {
+    NSLog(@"Pressin' the Favorite Button");
+    
+    [[TwitterClient instance] favoriteWithTweetId:self.currentTweet.tweet_id success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"Favoriting works!");
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Favoriting now working! Error: %@", error);
+    }];
+    
+}
+
+- (IBAction)onReply:(id)sender {
+    NSLog(@"Reply to your dumb post");
+    NSString *status = [NSString stringWithFormat:@"%@ ", self.currentTweet.twitter_handle];
+    ComposeViewController *composeVC = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" andStatus:status  inReplyToTweetId:self.currentTweet.tweet_id bundle:nil];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController: composeVC];
+    [self presentViewController:nvc animated:YES completion:nil];
+}
+
+- (IBAction)onRetweet:(id)sender {
+    NSLog(@"Retweeting you cat photos");
+    [[TwitterClient instance] retweetWithTweetId:self.currentTweet.tweet_id success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"Look at that, Retweeting Works!");
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"No so fast pal. Retweeting is broken today Error: %@", error);
+    }];
 }
 
 @end
