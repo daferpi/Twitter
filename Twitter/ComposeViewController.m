@@ -43,18 +43,14 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonSystemItemDone target:self action:@selector(onDoneButton)];
     self.editing = YES;
     
-//    if (self.current_status.length == 0) {
-//        self.statusTextView.placeholder = @"What's happening?";
-//    }
-//    else {
-//        self.statusTextView.text = self.current_status;
-//    }
-    
-//    [self.profileImageView setImageWithURL:[NSURL URLWithString: [[User currentUser] profile_image_url]]];
-//    self.screenNameLabel.text = [[User currentUser] screen_name];
-//    self.nameLabel.text = [[User currentUser] name];
-//    
-//    [self.statusTextView becomeFirstResponder];
+    if (self.current_status.length == 0) {
+        self.statusTextView.text = @"Enter your tweet here";
+    }
+    else {
+        self.statusTextView.text = self.current_status;
+    }
+
+    [self.statusTextView becomeFirstResponder];
 }
 
 - (void)onCancelButton
@@ -62,30 +58,33 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-//- (void)onDoneButton
-//{
-//    NSLog(@"onDoneButton");
-//    
-//    if (self.in_reply_to_status_id.length > 0) {
-//        NSLog(@"Reply Starting");
-//        [[TwitterClient instance] replyToTweetId:self.in_reply_to_status_id withStatus:self.statusTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
-//            NSLog(@"Reply Success!");
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            NSLog(@"Reply Error! Error: %@", error);
-//        }];
-//    }
-//    else {
-//        NSLog(@"Update Status Starting");
-//        [[TwitterClient instance] updateStatus:self.statusTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
-//            NSLog(@"Update Status Success!");
-//            [self dismissViewControllerAnimated:YES completion:nil];
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            NSLog(@"Update Status Error! Error: %@", error);
-//        }];
-//    }
-//}
-
+-(void)onDoneButton {
+    NSLog(@"onDoneButton");
+    
+    //    if (self.in_reply_to_status_id.length > 0) {
+    //        NSLog(@"Reply Starting");
+    //        [[TwitterClient instance] replyToTweetId:self.in_reply_to_status_id withStatus:self.statusTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
+    //            NSLog(@"Reply Success!");
+    //            [self dismissViewControllerAnimated:YES completion:nil];
+    //        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    //            NSLog(@"Reply Error! Error: %@", error);
+    //        }];
+    //    }
+    //    else {
+    NSLog(@"Updating Status");
+    
+    [[TwitterClient instance] updateStatus:self.statusTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
+        //           NSString *testString = @"Well keep testing till you get it right";
+        //          [[TwitterClient instance] updateStatus:testString success:^(AFHTTPRequestOperation *operation, id response) {
+        
+        NSLog(@"Status Updated. Now everyone knows about your cats");
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Twitter hates this update so much it's blocking your post: %@", error);
+    }];
+    //    }
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

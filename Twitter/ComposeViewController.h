@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *twitterHandleLabel;
 @property (strong, nonatomic) NSString *in_reply_to_status_id;
 @property (strong, nonatomic) NSString *current_status;
+@property (weak, nonatomic) IBOutlet UITextView *statusTextView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil andStatus:(NSString *)status bundle:(NSBundle *)nibBundleOrNil;
 

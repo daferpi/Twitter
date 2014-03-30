@@ -82,4 +82,42 @@
 }
 
 
+- (AFHTTPRequestOperation *)getUserWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    return [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:success failure:failure];
+}
+
+- (void)updateStatus:(NSString *)status success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:status forKey:@"status"];
+    
+    [self POST:@"https://api.twitter.com/1.1/statuses/update.json" parameters:params success:success failure:failure];
+}
+
+- (void)replyToTweetId:(NSString *)tweetId withStatus:(NSString *) status success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:status forKey:@"status"];
+    [params setObject:tweetId forKey:@"in_reply_to_status_id"];
+    
+    [self POST:@"https://api.twitter.com/1.1/statuses/update.json" parameters:params success:success failure:failure];
+}
+
+- (void)favoriteWithTweetId:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    [params setObject:tweetId forKey:@"id"];
+    
+    [self POST:@"https://api.twitter.com/1.1/favorites/create.json" parameters:params success:success failure:failure];
+}
+
+- (void)retweetWithTweetId:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    NSString *path = [NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/retweet/%@.json", tweetId];
+    [self POST:path parameters:nil success:success failure:failure];
+}
+
+
 @end
