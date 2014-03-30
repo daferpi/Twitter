@@ -20,7 +20,6 @@
 @property (nonatomic, strong) NSMutableArray *tweets;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
-
 - (void)onSignOutButton;
 - (void)reload;
 
@@ -33,6 +32,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Twitter";
+        
+        [self reload];
+
     }
     return self;
 }
@@ -99,7 +101,7 @@
                                   attributes:@{NSFontAttributeName:fontText}
                                      context:nil];
     
-    CGFloat heightOffset = 90;
+    CGFloat heightOffset = 0;
     return rect.size.height + heightOffset;
 }
 
@@ -122,7 +124,13 @@
 
 - (void)reload
 {
-    
+    [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+        self.tweets = [Tweet tweetsWithArray:response];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // Do nothing
+    }];
 }
 
 - (void)onComposeButton

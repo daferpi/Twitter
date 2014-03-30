@@ -68,6 +68,18 @@
     return [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:success failure:failure];
 }
 
+- (void)homeTimelineWithCount:(int)count sinceId:(int)sinceId maxId:(int)maxId success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+                      failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"count": @(count)}];
+    if (sinceId > 0) {
+        [params setObject:@(sinceId) forKey:@"since_id"];
+    }
+    if (maxId > 0) {
+        [params setObject:@(maxId) forKey:@"max_id"];
+    }
+    [self GET:@"1.1/statuses/home_timeline.json" parameters:params success:success failure:failure];
+}
 
 
 @end
