@@ -49,7 +49,7 @@
 
 - (IBAction)onLogin:(id)sender
 {
-    NSlog(@"Login Button Pressed");
+    NSLog(@"Login Button Pressed");
     [[TwitterClient instance] login];
 }
 

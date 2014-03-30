@@ -33,7 +33,11 @@
     [self.requestSerializer removeAccessToken];
     
     // Fetches a request token with protocol handler to call back to. Returns a requestToken
-    [self fetchRequestTokenWithPath:@"oauth/request_token" method:@"POST" callbackURL:[NSURL URLWithString:@"cptwitter://oauth"] scope:nil success:^(BDBOAuthToken *requestToken)
+    [self fetchRequestTokenWithPath:@"oauth/request_token"
+                             method:@"POST"
+                        callbackURL:[NSURL URLWithString:@"cptwitter://oauth"]
+                              scope:nil
+                            success:^(BDBOAuthToken *requestToken)
     {
         NSLog(@"Request Token Received");
         NSLog(@"Here is the token: %@", requestToken.token);
@@ -56,6 +60,12 @@
                                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
     return [self GET:@"1.1/statuses/home_timeline.json" parameters:nil success:success failure:failure];
+}
+
+- (AFHTTPRequestOperation *)getUserWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                                       failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    return [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:success failure:failure];
 }
 
 @end

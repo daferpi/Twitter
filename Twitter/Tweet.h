@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSString *twitter_handle;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *relative_timestamp;
+@property (nonatomic, strong) NSNumber *favoriteCount;
+@property (nonatomic, strong) NSNumber *retweetCount;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

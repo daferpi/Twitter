@@ -16,10 +16,12 @@
     if (self) {
         self.tweet_id           = dictionary[@"id"];
         self.tweet_text         = dictionary[@"text"];
-        self.profile_image_url  = dictionary[@"profile_image_url"];
-        self.twitter_handle     = dictionary[@"screen_name"];
-        self.name               = dictionary[@"name"];
+        self.profile_image_url  = dictionary[@"user"][@"profile_image_url"];
+        self.twitter_handle     = dictionary[@"user"][@"screen_name"];
+        self.name               = dictionary[@"user"][@"name"];
         self.timestamp          = dictionary[@"created_at"];
+        self.favoriteCount      = dictionary[@"favorite_count"];
+        self.retweetCount       = dictionary[@"retweet_count"];
     }
     return self;
 }

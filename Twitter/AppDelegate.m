@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "TimelineViewController.h"
+#import "User.h"
 
 @implementation NSURL (dictionaryFromQueryString)
 
@@ -32,6 +34,16 @@
 
 @end
 
+@interface AppDelegate ()
+
+- (void)updateRootViewController;
+
+@property (nonatomic, strong) LoginViewController *loginViewController;
+@property (nonatomic, strong) UINavigationController *timelineViewController;
+@property (nonatomic, strong) UIViewController *currentViewController;
+
+@end
+
 
 @implementation AppDelegate
 
@@ -39,11 +51,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    LoginViewController *loginViewController = [[LoginViewController alloc] init];
-    self.window.rootViewController = loginViewController;
+    [self.window setRootViewController:self.currentViewController];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRootViewController) name:UserDidLoginNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateRootViewController) name:UserDidLogoutNotification object:nil];
+
     return YES;
 }
 
@@ -87,30 +102,29 @@
         // Checks the route of the handler
         if ([url.host isEqualToString:@"oauth"])
         {
-            // Create dictionaty from params in url string
+            // Create dictionary from params in url string
             NSDictionary *parameters = [url dictionaryFromQueryString];
             if (parameters[@"oauth_token"] && parameters[@"oauth_verifier"]) {
                 
                 // Singleton
                 TwitterClient *client = [TwitterClient instance];
                 
-                // Requests access token using a request token
-                [client fetchAccessTokenWithPath:@"/oauth/access_token" method:@"POST" requestToken:[BDBOAuthToken tokenWithQueryString:url.query] success:^(BDBOAuthToken *accessToken) {
-                    NSLog(@"Access token received");
-                    NSLog(@"Here's your access token: %@", accessToken);
-                    [client.requestSerializer saveAccessToken:accessToken];
-                    
-                    // Calling the homeTimeline API method
-                    [client homeTimeLineWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        NSLog(@"JSON: %@", responseObject);
-                        
-                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                        NSLog(@"Response fail: %@", error);
-                    }];
-                    
-                } failure:^(NSError *error) {
-                    NSLog(@"Can't pass without a token)");
-                }];
+                [client fetchAccessTokenWithPath:@"/oauth/access_token"
+                                                method:@"POST"
+                                          requestToken:[BDBOAuthToken tokenWithQueryString:url.query]
+                                               success:^(BDBOAuthToken *accessToken) {
+                                                   [client.requestSerializer saveAccessToken:accessToken];
+                                                   [client getUserWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                       // After logging in create and set the user
+                                                       [User setCurrentUser:[[User alloc] initWithDictionary:(NSDictionary *)responseObject]];
+                                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                       NSLog(@"%@", error);
+                                                   }];
+                                               }
+                                               failure:^(NSError *error) {
+                                                   NSLog(@"Error");
+                                               }];
+                
             }
         }
         return YES;
@@ -118,4 +132,34 @@
     return NO;
 }
 
+#pragma mark - Private method
+
+- (void)updateRootViewController {
+    
+    [self.window setRootViewController:self.currentViewController];
+}
+
+- (LoginViewController *)loginViewController {
+    if (!_loginViewController) {
+        _loginViewController = [[LoginViewController alloc] init];
+    }
+    return _loginViewController;
+}
+
+- (UINavigationController *)timelineViewController {
+    if (!_timelineViewController) {
+        TimelineViewController *timelineVC = [[TimelineViewController alloc] init];
+        _timelineViewController = [[UINavigationController alloc] initWithRootViewController:timelineVC];
+    }
+    return _timelineViewController;
+}
+
+- (UIViewController *)currentViewController {
+    if ([User currentUser]) {
+        return self.timelineViewController;
+    }
+    else {
+        return self.loginViewController;
+    }
+}
 @end
