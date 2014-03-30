@@ -52,9 +52,9 @@
     
     [self.profileImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:currentTweet.profile_image_url]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         self.profileImageView.image = image;
-        NSLog(@"Profile Image looks hot!");
+        NSLog(@"Profile Image");
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        NSLog(@"Profile Image is so bad we ain't showin it: %@", error);
+        NSLog(@"Profile Image failure: %@", error);
     }];
 }
 
@@ -64,19 +64,17 @@
 }
 
 - (IBAction)onFavorite:(id)sender {
-    NSLog(@"Pressin' the Favorite Button");
+    NSLog(@"Favorite Button");
     
     [[TwitterClient instance] favoriteWithTweetId:self.currentTweet.tweet_id success:^(AFHTTPRequestOperation *operation, id response) {
-        NSLog(@"Favoriting works!");
-        
+        NSLog(@"Favoriting success");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Favoriting now working! Error: %@", error);
+        NSLog(@"Favoriting failure: Error: %@", error);
     }];
-    
 }
 
 - (IBAction)onReply:(id)sender {
-    NSLog(@"Reply to your dumb post");
+    NSLog(@"Reply to post");
     NSString *status = [NSString stringWithFormat:@"%@ ", self.currentTweet.twitter_handle];
     ComposeViewController *composeVC = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" andStatus:status  inReplyToTweetId:self.currentTweet.tweet_id bundle:nil];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController: composeVC];
@@ -84,12 +82,12 @@
 }
 
 - (IBAction)onRetweet:(id)sender {
-    NSLog(@"Retweeting you cat photos");
+    NSLog(@"Retweeting");
     [[TwitterClient instance] retweetWithTweetId:self.currentTweet.tweet_id success:^(AFHTTPRequestOperation *operation, id response) {
-        NSLog(@"Look at that, Retweeting Works!");
+        NSLog(@"Retweeting success!");
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"No so fast pal. Retweeting is broken today Error: %@", error);
+        NSLog(@"Retweeting error: %@", error);
     }];
 }
 
