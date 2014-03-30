@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "TwitterClient.h"
 
 NSString * const UserDidLoginNotification = @"UserDidLoginNotification";
 NSString * const UserDidLogoutNotification = @"UserDidLogoutNotification";

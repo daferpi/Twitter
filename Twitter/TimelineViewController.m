@@ -11,6 +11,8 @@
 #import "ComposeViewController.h"
 #import "TweetViewController.h"
 #import <UIImageView+AFNetworking.h>
+#import "User.h"
+#import "TwitterClient.h"
 
 @interface TimelineViewController ()
 
@@ -39,6 +41,9 @@
 {
     [super viewDidLoad];
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     UINib *customNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:customNib forCellReuseIdentifier:@"TweetCell"];
     
@@ -66,9 +71,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"TweetCell";
-    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    TweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     
-    Tweet *tweet = self.tweets[indexPath.row];
     cell.statusLabel.text = tweet.tweet_text;
     cell.nameLabel.text = tweet.name;
     cell.twitterHandleLabel.text = tweet.twitter_handle;
@@ -103,9 +108,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //Tweet *tweet = self.tweets[indexPath.row];
+
     TweetViewController *tvc = [[TweetViewController alloc] initWithNibName:@"TweetViewController" bundle:nil];
-    
     [self.navigationController pushViewController:tvc animated:YES];
 }
 
@@ -113,7 +117,7 @@
 
 - (void)onSignOutButton
 {
-//    [User setCurrentUser:nil];
+    [User setCurrentUser:nil];
 }
 
 - (void)reload
@@ -124,11 +128,13 @@
 - (void)onComposeButton
 {
     NSLog(@"Compose Button Clicked");
+    ComposeViewController *composeVC = [[ComposeViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController: composeVC];
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)refreshView
 {
-    
     [self.refreshControl endRefreshing];
 }
 
