@@ -21,7 +21,7 @@
     // Singleton of Twitter Client with keys and string for Twitter API
     instance = [[TwitterClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.twitter.com"]
                                           consumerKey:@"1mbRPtVqYmO6gS5FZpbvg"
-                                       consumerSecret:@"ffrdIYENwgXNF9pZErWm5910PC544t4BDrV93NmN17Y" ];
+                                       consumerSecret:@"ffrdIYENwgXNF9pZErWm5910PC544t4BDrV93NmN17Y"];
     });
     
     return instance;
