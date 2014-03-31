@@ -90,13 +90,13 @@
     Tweet *tweet = self.tweets[indexPath.row];
     
     NSString *text = tweet.tweet_text;
-    UIFont *fontText = [UIFont boldSystemFontOfSize:17.0];
+    UIFont *fontText = [UIFont systemFontOfSize:15.0];
     CGRect rect = [text boundingRectWithSize:CGSizeMake(165, CGFLOAT_MAX)
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:@{NSFontAttributeName:fontText}
                                      context:nil];
     
-    CGFloat heightOffset = 0;
+    CGFloat heightOffset = 25;
     return rect.size.height + heightOffset;
 }
 
@@ -125,7 +125,7 @@
         self.tweets = [Tweet tweetsWithArray:response];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failure");
+        NSLog(@"!");
     }];
 }
 
