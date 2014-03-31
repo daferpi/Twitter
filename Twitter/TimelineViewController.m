@@ -96,7 +96,7 @@
                                   attributes:@{NSFontAttributeName:fontText}
                                      context:nil];
     
-    CGFloat heightOffset = 25;
+    CGFloat heightOffset = 50;
     return rect.size.height + heightOffset;
 }
 
