@@ -53,9 +53,10 @@
         self.statusTextView.text = self.current_status;
     }
     
-//    [self.profileImageView setImageWithURL:[NSURL URLWithString: [[User currentUser] profile_image_url]]];
-//    self.twitterHandleLabel.text = [[User currentUser] screen_name];
-//    self.nameLabel.text = [[User currentUser] name];
+    User *user = [User currentUser];
+    self.nameLabel.text = user.name;
+    self.twitterHandleLabel.text = user.screen_name;
+    [self.profileImageView setImageWithURL:[NSURL URLWithString: user.profile_image_url]];
     
     [self.statusTextView becomeFirstResponder];
 }

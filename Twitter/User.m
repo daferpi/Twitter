@@ -14,25 +14,12 @@ NSString * const UserDidLogoutNotification = @"UserDidLogoutNotification";
 
 @implementation User
 
-//- (NSString *)profile_image_url {
-//    //return [self.data valueOrNilForKeyPath:@"profile_image_url"];
-//}
-//
-//- (NSString *)screen_name {
-//    //return [NSString stringWithFormat:@"@%@", [self.data valueOrNilForKeyPath:@"screen_name"]];
-//}
-//
-//- (NSString *)name {
-//    //return [self.data valueOrNilForKeyPath:@"name"];
-//}
-//
-
 static User *currentUser = nil;
 
 + (User *)currentUser
 {
     if (currentUser == nil) {
-        NSDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:@"current_user"];
+        NSMutableDictionary *dictionary = [[NSUserDefaults standardUserDefaults] objectForKey:@"current_user"];
         if (dictionary) {
             currentUser = [[User alloc] initWithDictionary:dictionary];
         }
@@ -71,7 +58,28 @@ static User *currentUser = nil;
 {
     self = [super init];
     _data = dictionary;
+
+    if (![dictionary isKindOfClass:[NSDictionary class]]){
+        NSLog(@"dictionary is really a data block, not a dictionary");
+        dictionary = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    }
+    _name              = dictionary[@"name"];
+    _profile_image_url = dictionary[@"profile_image_url"];
+    _screen_name       = dictionary[@"screen_name"];
+    
+    
+    //    if ([dictionary isKindOfClass:[NSDictionary class]]){
+    //        NSLog(@"dictionary is a real dictionary!!!");
+    //        _name              = dictionary[@"name"];
+    //        _profile_image_url = dictionary[@"profile_image_url"];
+    //        _screen_name       = dictionary[@"screen_name"];
+    //    } else {
+    //        NSLog(@"dictionary is a block of data");
+    //        dictionary = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    //        _name              = dictionary[@"name"];
+    //        _profile_image_url = dictionary[@"profile_image_url"];
+    //        _screen_name       = dictionary[@"screen_name"];
+    //    }
     return self;
 }
-
 @end
