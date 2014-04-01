@@ -91,7 +91,7 @@
     
     NSString *text = tweet.tweet_text;
     UIFont *fontText = [UIFont systemFontOfSize:15.0];
-    CGRect rect = [text boundingRectWithSize:CGSizeMake(165, CGFLOAT_MAX)
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(235, CGFLOAT_MAX)
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:@{NSFontAttributeName:fontText}
                                      context:nil];

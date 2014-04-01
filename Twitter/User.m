@@ -59,27 +59,30 @@ static User *currentUser = nil;
     self = [super init];
     _data = dictionary;
 
-//    if (![dictionary isKindOfClass:[NSDictionary class]]){
-//        NSLog(@"dictionary is really a data block, not a dictionary");
-//        dictionary = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:nil];
-//    }
-//    _name              = dictionary[@"name"];
-//    _profile_image_url = dictionary[@"profile_image_url"];
-//    _screen_name       = dictionary[@"screen_name"];
-    
-    
-    if ([dictionary isKindOfClass:[NSDictionary class]]){
-        NSLog(@"dictionary is a real dictionary!!!");
-        _name              = dictionary[@"name"];
-        _profile_image_url = dictionary[@"profile_image_url"];
-        _screen_name       = dictionary[@"screen_name"];
-    } else {
-        NSLog(@"dictionary is a block of data");
-        NSDictionary *newDictionary = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:nil];
-        _name              = newDictionary[@"name"];
-        _profile_image_url = newDictionary[@"profile_image_url"];
-        _screen_name       = newDictionary[@"screen_name"];
+    if (![dictionary isKindOfClass:[NSDictionary class]]){
+        NSLog(@"dictionary is really a data block, not a dictionary");
+        dictionary = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:nil];
     }
+    _name              = dictionary[@"name"];
+    _profile_image_url = dictionary[@"profile_image_url"];
+    _screen_name       = dictionary[@"screen_name"];
+    
+    
+    // Save in case shit gets cray
+    //    if ([dictionary isKindOfClass:[NSDictionary class]]){
+    //        NSLog(@"dictionary is a real dictionary!!!");
+    //        _name              = dictionary[@"name"];
+    //        _profile_image_url = dictionary[@"profile_image_url"];
+    //        _screen_name       = dictionary[@"screen_name"];
+    //    } else {
+    //        NSLog(@"dictionary is a block of data");
+    //        dictionary = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:nil];
+    //        _name              = dictionary[@"name"];
+    //        _profile_image_url = dictionary[@"profile_image_url"];
+    //        _screen_name       = dictionary[@"screen_name"];
+    //    }
+    
+    
     return self;
 }
 @end
