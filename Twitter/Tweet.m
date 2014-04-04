@@ -38,7 +38,7 @@
     return tweets;
 }
 
--(NSString *)relative_timestamp
+- (NSString *)relative_timestamp
 {
     NSDateFormatter *datefformat = [[NSDateFormatter alloc] init];
     [datefformat setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
@@ -46,6 +46,5 @@
     NSDate *tweetDate = [datefformat dateFromString:self.timestamp];
     return [tweetDate timeAgo];
 }
-
 
 @end

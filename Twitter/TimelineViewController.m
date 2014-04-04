@@ -79,7 +79,7 @@
     
     //tap on profile for ProfileViewController
     UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileOnTap:)];
-    cell.profileImageView.image = indexPath.row;
+    //cell.profileImageView.image = indexPath.row;
     [cell.profileImageView setUserInteractionEnabled:YES];
     [tapgesture setDelegate:self];
     [cell.profileImageView addGestureRecognizer:tapgesture];
@@ -160,12 +160,11 @@
 
 - (void)profileOnTap:(UIGestureRecognizer *)tap
 {
-    Tweet *tweet = [self.
+//    Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     NSLog(@"profile tapped");
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
-    pvc.user = tweet.user;
+   // pvc.user = tweet.user;
     [self.navigationController pushViewController:pvc animated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning

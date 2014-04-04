@@ -38,6 +38,9 @@
     
 }
 
+//TODO set the user
+//TODO load user's details
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
