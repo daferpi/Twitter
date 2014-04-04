@@ -10,6 +10,8 @@
 		3B012AA4B07C4947A2521F87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8CD23DA43F4B9A98D499A9 /* libPods.a */; };
 		EB31F97718E53EC600CBEA71 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB31F97518E53EC600CBEA71 /* TimelineViewController.m */; };
 		EB31F97818E53EC600CBEA71 /* TimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB31F97618E53EC600CBEA71 /* TimelineViewController.xib */; };
+		EB72D2E918EE51B7007A9CC6 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB72D2E718EE51B7007A9CC6 /* ProfileViewController.m */; };
+		EB72D2EA18EE51B7007A9CC6 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB72D2E818EE51B7007A9CC6 /* ProfileViewController.xib */; };
 		EB9DBD2E18E539FA0054D457 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9DBD2D18E539FA0054D457 /* Foundation.framework */; };
 		EB9DBD3018E539FA0054D457 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9DBD2F18E539FA0054D457 /* CoreGraphics.framework */; };
 		EB9DBD3218E539FA0054D457 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB9DBD3118E539FA0054D457 /* UIKit.framework */; };
@@ -51,6 +53,9 @@
 		EB31F97418E53EC600CBEA71 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		EB31F97518E53EC600CBEA71 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		EB31F97618E53EC600CBEA71 /* TimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimelineViewController.xib; sourceTree = "<group>"; };
+		EB72D2E618EE51B7007A9CC6 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		EB72D2E718EE51B7007A9CC6 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		EB72D2E818EE51B7007A9CC6 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		EB9DBD2A18E539FA0054D457 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9DBD2D18E539FA0054D457 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB9DBD2F18E539FA0054D457 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -214,6 +219,9 @@
 				EB9DBD6B18E53C270054D457 /* TweetViewController.h */,
 				EB9DBD6C18E53C270054D457 /* TweetViewController.m */,
 				EB9DBD6D18E53C270054D457 /* TweetViewController.xib */,
+				EB72D2E618EE51B7007A9CC6 /* ProfileViewController.h */,
+				EB72D2E718EE51B7007A9CC6 /* ProfileViewController.m */,
+				EB72D2E818EE51B7007A9CC6 /* ProfileViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -316,6 +324,7 @@
 			files = (
 				EB9DBD6F18E53C270054D457 /* TweetViewController.xib in Resources */,
 				EB9DBD3818E539FA0054D457 /* InfoPlist.strings in Resources */,
+				EB72D2EA18EE51B7007A9CC6 /* ProfileViewController.xib in Resources */,
 				EB9DBD4018E539FA0054D457 /* Images.xcassets in Resources */,
 				EB31F97818E53EC600CBEA71 /* TimelineViewController.xib in Resources */,
 				EB9DBD7418E53C890054D457 /* ComposeViewController.xib in Resources */,
@@ -380,6 +389,7 @@
 				EB9DBD3A18E539FA0054D457 /* main.m in Sources */,
 				EB9DBD6218E53BC50054D457 /* User.m in Sources */,
 				EB9DBD7318E53C890054D457 /* ComposeViewController.m in Sources */,
+				EB72D2E918EE51B7007A9CC6 /* ProfileViewController.m in Sources */,
 				EB9DBD6918E53BF40054D457 /* TweetCell.m in Sources */,
 				EB9DBD6518E53BD10054D457 /* Tweet.m in Sources */,
 			);
