@@ -35,7 +35,7 @@
     if (self) {
         self.title = @"Twitter";
         
-        self.showMentions = YES;
+        self.showMentions = NO;
         [self reload];
 
     }
@@ -182,10 +182,10 @@
 
 - (void)profileOnTap:(UIGestureRecognizer *)tap
 {
-//    Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
+//    Tweet *tweet = self.tweets[indexPath.row];
     NSLog(@"profile tapped");
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
-   // pvc.user = tweet.user;
+//    pvc.user = tweet.user;
     [self.navigationController pushViewController:pvc animated:YES];
 }
 

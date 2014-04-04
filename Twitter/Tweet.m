@@ -15,6 +15,7 @@
 {
     self = [super init];
     if (self) {
+        self.user = [[User alloc] initWithDictionary:dictionary[@"user"]];
         self.tweet_id           = dictionary[@"id"];
         self.tweet_text         = dictionary[@"text"];
         self.profile_image_url  = dictionary[@"user"][@"profile_image_url"];

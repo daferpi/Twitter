@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImage;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *twitterHandleLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *tweetCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followingCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *followersCountLabel;
@@ -27,7 +26,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Profile";
+        
     }
     return self;
 }
@@ -35,7 +34,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"Profile";
+    [self setupUser];
+}
+
+- (void)setUser:(User *)user {
+    NSLog(@"ProfileViewController:setUser %@",user);
+    _user = user;
+    [self setupUser];
+}
+
+- (void)setupUser
+{
+    self.usernameLabel.text = self.user.name;
+    self.twitterHandleLabel.text = self.user.screen_name;
+    [self.userProfileImage setImageWithURL:self.user.profile_image_url];
+    self.tweetCountLabel.text = [NSString stringWithFormat:@"%@",self.user.statusCount];
+    self.followersCountLabel.text = [NSString stringWithFormat:@"%@",self.user.followerCount];
+    self.followingCountLabel.text = [NSString stringWithFormat:@"%@",self.user.friendCount];
 }
 
 //TODO set the user
