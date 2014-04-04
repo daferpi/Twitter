@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *tweets;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (assign, nonatomic) BOOL showMentions;
 
 - (void)onSignOutButton;
 - (void)reload;
@@ -34,6 +35,7 @@
     if (self) {
         self.title = @"Twitter";
         
+        self.showMentions = YES;
         [self reload];
 
     }
@@ -128,13 +130,33 @@
 
 - (void)reload
 {
-    [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 success:^(AFHTTPRequestOperation *operation, id response) {
-        NSLog(@"%@", response);
-        self.tweets = [Tweet tweetsWithArray:response];
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"!");
-    }];
+    if (self.showMentions) {
+        // Getting mentions from API
+        [[TwitterClient instance] mentionsWithSuccess:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"You've been mentioned by people: %@", response);
+            
+            // Initializing tweet model with array of json
+            self.tweets = [Tweet tweetsWithArray:response];
+            [self setTitle:@"Mentions"];
+            
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"No one loves you enough to mention you!");
+        }];
+    } else {
+        // Getting last 20 tweets from home timeline API
+        [[TwitterClient instance] homeTimelineWithCount:20 sinceId:0 maxId:0 success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"You've go the best json I've ever seen: %@", response);
+            
+            // Initializing tweet model with array of json
+            self.tweets = [Tweet tweetsWithArray:response];
+            [self setTitle:@"Home"];
+            
+            [self.tableView reloadData];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"You've been very bad. No tweets for you!");
+        }];
+    }
 }
 
 - (void)onComposeButton
@@ -165,6 +187,17 @@
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
    // pvc.user = tweet.user;
     [self.navigationController pushViewController:pvc animated:YES];
+}
+
+- (void)setTitle:(NSString *)title
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:20.0];
+    label.textColor = [UIColor whiteColor];
+    self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(title, @"");
+    [label sizeToFit];
 }
 
 - (void)didReceiveMemoryWarning
