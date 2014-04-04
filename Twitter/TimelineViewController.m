@@ -13,6 +13,7 @@
 #import <UIImageView+AFNetworking.h>
 #import "User.h"
 #import "TwitterClient.h"
+#import "ProfileViewController.h"
 
 @interface TimelineViewController ()
 
@@ -75,7 +76,14 @@
     cell.nameLabel.text = tweet.name;
     cell.twitterHandleLabel.text = tweet.twitter_handle;
     cell.timeStampLabel.text = tweet.relative_timestamp;
-
+    
+    //tap on profile for ProfileViewController
+    UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileOnTap:)];
+    cell.profileImageView.image = indexPath.row;
+    [cell.profileImageView setUserInteractionEnabled:YES];
+    [tapgesture setDelegate:self];
+    [cell.profileImageView addGestureRecognizer:tapgesture];
+    
     [cell.profileImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:tweet.profile_image_url]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         cell.profileImageView.image = image;
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -148,6 +156,16 @@
         NSLog(@"!");
     }];
     [self.refreshControl endRefreshing];
+}
+
+- (void)profileOnTap:(UIGestureRecognizer *)tap
+{
+    Tweet *tweet = [self.
+    NSLog(@"profile tapped");
+    ProfileViewController *pvc = [[ProfileViewController alloc] init];
+    pvc.user = tweet.user;
+    [self.navigationController pushViewController:pvc animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
