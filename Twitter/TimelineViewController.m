@@ -182,9 +182,7 @@
 
 - (void)profileOnTap:(UIGestureRecognizer *)tap
 {
-    Tweet *tweet = [self.tweets objectAtIndex:
-                                        tweet:tap.view.tag;];
-    
+    Tweet *tweet = [self.tweets objectAtIndex:tap.view.tag];
     NSLog(@"profile tapped");
     ProfileViewController *pvc = [[ProfileViewController alloc] init];
     pvc.user = tweet.user;

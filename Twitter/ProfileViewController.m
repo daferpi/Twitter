@@ -48,7 +48,8 @@
 {
     self.usernameLabel.text = self.user.name;
     self.twitterHandleLabel.text = self.user.screen_name;
-    [self.userProfileImage setImageWithURL:self.user.profile_image_url];
+//    [self.userProfileImage setImageWithURL:self.user.profile_image_url];
+    [self.userProfileImage setImageWithURL:[NSURL URLWithString:self.user.profile_image_url]];
     self.tweetCountLabel.text = [NSString stringWithFormat:@"%@",self.user.statusCount];
     self.followersCountLabel.text = [NSString stringWithFormat:@"%@",self.user.followerCount];
     self.followingCountLabel.text = [NSString stringWithFormat:@"%@",self.user.friendCount];
