@@ -72,6 +72,9 @@ static User *currentUser = nil;
         _name              = newDictionary[@"name"];
         _profile_image_url = newDictionary[@"profile_image_url"];
         _screen_name       = newDictionary[@"screen_name"];
+        _followerCount     = newDictionary[@"followers_count"];
+        _friendCount       = newDictionary[@"friends_count"];
+        _statusCount       = newDictionary[@"statuses_count"];
     }
     
     // Save in case shit gets cray (it got crazy)
