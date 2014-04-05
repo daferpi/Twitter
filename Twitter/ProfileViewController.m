@@ -12,6 +12,7 @@
 @interface ProfileViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImage;
+@property (weak, nonatomic) IBOutlet UIImageView *userProfileBackgroundImage;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *twitterHandleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetCountLabel;
@@ -53,6 +54,7 @@
     self.tweetCountLabel.text = [NSString stringWithFormat:@"%@",self.user.statusCount];
     self.followersCountLabel.text = [NSString stringWithFormat:@"%@",self.user.followerCount];
     self.followingCountLabel.text = [NSString stringWithFormat:@"%@",self.user.friendCount];
+    [self.userProfileBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageURL]];
 }
 
 //TODO set the user

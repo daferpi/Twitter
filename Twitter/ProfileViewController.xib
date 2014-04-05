@@ -10,6 +10,7 @@
                 <outlet property="followingCountLabel" destination="w4Y-vp-Gyn" id="1Hz-fC-NUh"/>
                 <outlet property="tweetCountLabel" destination="1U1-lF-dQC" id="pL7-uI-kyJ"/>
                 <outlet property="twitterHandleLabel" destination="ogF-H1-pwn" id="Ztc-Zm-YKd"/>
+                <outlet property="userProfileBackgroundImage" destination="KaF-wD-EFR" id="x1B-3A-0gP"/>
                 <outlet property="userProfileImage" destination="jhG-3z-Qsy" id="0Bv-4W-sr4"/>
                 <outlet property="usernameLabel" destination="Ygu-4r-N5J" id="M2O-i5-syE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

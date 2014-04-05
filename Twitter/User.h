@@ -24,5 +24,6 @@ extern NSString *const UserDidLogoutNotification;
 @property (nonatomic,strong) NSNumber *followerCount;
 @property (nonatomic,strong) NSNumber *friendCount;
 @property (nonatomic,strong) NSNumber *statusCount;
+@property (nonatomic,strong) NSURL *profileBackgroundImageURL;
 
 @end
