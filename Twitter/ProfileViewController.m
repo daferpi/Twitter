@@ -8,6 +8,7 @@
 
 #import "ProfileViewController.h"
 #import <UIImageView+AFNetworking.h>
+#import "User.h"
 
 @interface ProfileViewController ()
 
@@ -36,6 +37,10 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"Profile";
+    
+    // Adding Buttons to Navigation Bar
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelButton)];
+    
     [self setupUser];
 }
 
@@ -57,8 +62,9 @@
     [self.userProfileBackgroundImage setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageURL]];
 }
 
-//TODO set the user
-//TODO load user's details
+- (void)onCancelButton {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {

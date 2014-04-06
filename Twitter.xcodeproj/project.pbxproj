@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B012AA4B07C4947A2521F87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8CD23DA43F4B9A98D499A9 /* libPods.a */; };
+		EB26124418F21977004FC7B9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB26124218F21977004FC7B9 /* MenuViewController.m */; };
+		EB26124518F21977004FC7B9 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB26124318F21977004FC7B9 /* MenuViewController.xib */; };
 		EB31F97718E53EC600CBEA71 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB31F97518E53EC600CBEA71 /* TimelineViewController.m */; };
 		EB31F97818E53EC600CBEA71 /* TimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB31F97618E53EC600CBEA71 /* TimelineViewController.xib */; };
 		EB72D2E918EE51B7007A9CC6 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB72D2E718EE51B7007A9CC6 /* ProfileViewController.m */; };
@@ -32,8 +34,6 @@
 		EB9DBD6F18E53C270054D457 /* TweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9DBD6D18E53C270054D457 /* TweetViewController.xib */; };
 		EB9DBD7318E53C890054D457 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9DBD7118E53C890054D457 /* ComposeViewController.m */; };
 		EB9DBD7418E53C890054D457 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9DBD7218E53C890054D457 /* ComposeViewController.xib */; };
-		EBBEEAB318EFC6D3007E4B73 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBEEAB118EFC6D3007E4B73 /* MenuViewController.m */; };
-		EBBEEAB418EFC6D3007E4B73 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBEEAB218EFC6D3007E4B73 /* MenuViewController.xib */; };
 		EBEE9A5C18E87E720088D030 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEE9A5A18E87E720088D030 /* LoginViewController.m */; };
 		EBEE9A5D18E87E720088D030 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBEE9A5B18E87E720088D030 /* LoginViewController.xib */; };
 		EBF1107C18E75CA400CD9D9D /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF1107B18E75CA400CD9D9D /* TwitterClient.m */; };
@@ -52,6 +52,9 @@
 /* Begin PBXFileReference section */
 		1038854C379247958CC5B9D1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9C8CD23DA43F4B9A98D499A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB26124118F21977004FC7B9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		EB26124218F21977004FC7B9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		EB26124318F21977004FC7B9 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		EB31F97418E53EC600CBEA71 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		EB31F97518E53EC600CBEA71 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
 		EB31F97618E53EC600CBEA71 /* TimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimelineViewController.xib; sourceTree = "<group>"; };
@@ -87,9 +90,6 @@
 		EB9DBD7018E53C890054D457 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		EB9DBD7118E53C890054D457 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		EB9DBD7218E53C890054D457 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
-		EBBEEAB018EFC6D3007E4B73 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		EBBEEAB118EFC6D3007E4B73 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		EBBEEAB218EFC6D3007E4B73 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		EBEE9A5918E87E720088D030 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		EBEE9A5A18E87E720088D030 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		EBEE9A5B18E87E720088D030 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -227,9 +227,9 @@
 				EB72D2E618EE51B7007A9CC6 /* ProfileViewController.h */,
 				EB72D2E718EE51B7007A9CC6 /* ProfileViewController.m */,
 				EB72D2E818EE51B7007A9CC6 /* ProfileViewController.xib */,
-				EBBEEAB018EFC6D3007E4B73 /* MenuViewController.h */,
-				EBBEEAB118EFC6D3007E4B73 /* MenuViewController.m */,
-				EBBEEAB218EFC6D3007E4B73 /* MenuViewController.xib */,
+				EB26124118F21977004FC7B9 /* MenuViewController.h */,
+				EB26124218F21977004FC7B9 /* MenuViewController.m */,
+				EB26124318F21977004FC7B9 /* MenuViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -334,7 +334,7 @@
 				EB9DBD3818E539FA0054D457 /* InfoPlist.strings in Resources */,
 				EB72D2EA18EE51B7007A9CC6 /* ProfileViewController.xib in Resources */,
 				EB9DBD4018E539FA0054D457 /* Images.xcassets in Resources */,
-				EBBEEAB418EFC6D3007E4B73 /* MenuViewController.xib in Resources */,
+				EB26124518F21977004FC7B9 /* MenuViewController.xib in Resources */,
 				EB31F97818E53EC600CBEA71 /* TimelineViewController.xib in Resources */,
 				EB9DBD7418E53C890054D457 /* ComposeViewController.xib in Resources */,
 				EBEE9A5D18E87E720088D030 /* LoginViewController.xib in Resources */,
@@ -397,7 +397,7 @@
 				EBEE9A5C18E87E720088D030 /* LoginViewController.m in Sources */,
 				EB9DBD3A18E539FA0054D457 /* main.m in Sources */,
 				EB9DBD6218E53BC50054D457 /* User.m in Sources */,
-				EBBEEAB318EFC6D3007E4B73 /* MenuViewController.m in Sources */,
+				EB26124418F21977004FC7B9 /* MenuViewController.m in Sources */,
 				EB9DBD7318E53C890054D457 /* ComposeViewController.m in Sources */,
 				EB72D2E918EE51B7007A9CC6 /* ProfileViewController.m in Sources */,
 				EB9DBD6918E53BF40054D457 /* TweetCell.m in Sources */,

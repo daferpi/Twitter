@@ -56,6 +56,15 @@
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         NSLog(@"Profile Image failure: %@", error);
     }];
+    
+    // Adding Buttons to Navigation Bar
+    self.navigationItem.title = @"Tweet";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onCancelButton)];
+}
+
+- (void)onCancelButton
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
