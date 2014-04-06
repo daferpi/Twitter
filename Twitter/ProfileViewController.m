@@ -52,6 +52,10 @@
 
 - (void)setupUser
 {
+    if (!self.user) {
+        self.user = [User currentUser];
+    }
+    
     self.usernameLabel.text = self.user.name;
     self.twitterHandleLabel.text = self.user.screen_name;
 //    [self.userProfileImage setImageWithURL:self.user.profile_image_url];

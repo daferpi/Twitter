@@ -138,7 +138,6 @@
     [User setCurrentUser:nil];
 }
 
-
 - (void)onComposeButton
 {
     NSLog(@"Compose Button Clicked");

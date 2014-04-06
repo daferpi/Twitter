@@ -11,6 +11,7 @@
 #import "TwitterClient.h"
 #import "TimelineViewController.h"
 #import "User.h"
+#import "MenuViewController.h"
 
 @implementation NSURL (dictionaryFromQueryString)
 
@@ -41,6 +42,8 @@
 @property (nonatomic, strong) LoginViewController *loginViewController;
 @property (nonatomic, strong) UINavigationController *timelineViewController;
 @property (nonatomic, strong) UIViewController *currentViewController;
+@property (nonatomic, strong) UINavigationController *menuViewController;
+
 
 @end
 
@@ -151,12 +154,26 @@
         TimelineViewController *timelineVC = [[TimelineViewController alloc] init];
         _timelineViewController = [[UINavigationController alloc] initWithRootViewController:timelineVC];
     }
+    
     return _timelineViewController;
+}
+
+- (UINavigationController *)menuViewController {
+    if (!_menuViewController) {
+        MenuViewController *menuVC = [[MenuViewController alloc] init];
+        _menuViewController = [[UINavigationController alloc] initWithRootViewController:menuVC];
+        _menuViewController.toolbarHidden = NO;
+        
+        // Hide navigation bar
+        _menuViewController.navigationBarHidden = YES;
+    }
+    
+    return _menuViewController;
 }
 
 - (UIViewController *)currentViewController {
     if ([User currentUser]) {
-        return self.timelineViewController;
+        return self.menuViewController;
     }
     else {
         return self.loginViewController;
