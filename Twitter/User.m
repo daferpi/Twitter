@@ -79,16 +79,6 @@ static User *currentUser = nil;
         _statusCount       = newDictionary[@"statuses_count"];
         _profileBackgroundImageURL = newDictionary[@"profile_background_image_url"];
     }
-    
-    // Save in case shit gets cray (it got crazy)
-    //    if (![dictionary isKindOfClass:[NSDictionary class]]){
-    //        NSLog(@"dictionary is really a data block, not a dictionary");
-    //        dictionary = [NSJSONSerialization JSONObjectWithData:dictionary options:NSJSONWritingPrettyPrinted error:nil];
-    //    }
-    //        _name              = dictionary[@"name"];
-    //        _profile_image_url = dictionary[@"profile_image_url"];
-    //        _screen_name       = dictionary[@"screen_name"];
-    
     return self;
 }
 

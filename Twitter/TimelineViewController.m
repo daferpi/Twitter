@@ -53,9 +53,6 @@
     UINib *customNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:customNib forCellReuseIdentifier:@"TweetCell"];
     
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStyleDone target:self action:@selector(onSignOutButton)];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(onComposeButton)];
-    
     //Refresh Control
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventValueChanged];
@@ -130,11 +127,6 @@
 
 #pragma mark - Private methods
 
-//- (void)onSignOutButton
-//{
-//    [User setCurrentUser:nil];
-//}
-
 - (void)reload
 {
     if (self.showMentions) {
@@ -165,14 +157,6 @@
         }];
     }
 }
-
-//- (void)onComposeButton
-//{
-//    NSLog(@"Compose Button Clicked");
-//    ComposeViewController *composeVC = [[ComposeViewController alloc] init];
-//    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController: composeVC];
-//    [self presentViewController:nvc animated:YES completion:nil];
-//}
 
 - (void)refreshView
 {

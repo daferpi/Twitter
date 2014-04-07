@@ -90,20 +90,13 @@
     if (panGestureRecognizer.view.center.x < 160) {
         panGestureRecognizer.view.center = CGPointMake(160, 284);
         
-        // Prevents view from moving too far to the right
+    // Prevents view from moving too far to the right
     } else if (panGestureRecognizer.view.center.x > 450) {
         panGestureRecognizer.view.center = CGPointMake(450, 284);
     }
     
     // Resets the translation property for next use
     [panGestureRecognizer setTranslation:CGPointMake(0, 0) inView:self.view];
-    
-    
-    //    NSLog(@"%@", translation);
-    //    CGPoint touchPoint = [panGestureRecognizer locationInView:self.view.superview];
-    //    CGPoint velocity = [panGestureRecognizer velocityInView:self.view.superview];
-    //    NSLog(@"Gesture: %@", NSStringFromCGPoint(touchPoint));
-    //    NSLog(@"Velocity: %@", NSStringFromCGPoint(velocity));
 }
 
 - (void)didReceiveMemoryWarning

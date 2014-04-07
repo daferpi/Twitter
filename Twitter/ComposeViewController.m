@@ -66,19 +66,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)onDoneButton {
+- (void)onDoneButton
+{
     NSLog(@"onDoneButton");
-    
-    //    if (self.in_reply_to_status_id.length > 0) {
-    //        NSLog(@"Reply Starting");
-    //        [[TwitterClient instance] replyToTweetId:self.in_reply_to_status_id withStatus:self.statusTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
-    //            NSLog(@"Reply Success!");
-    //            [self dismissViewControllerAnimated:YES completion:nil];
-    //        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //            NSLog(@"Reply Error! Error: %@", error);
-    //        }];
-    //    }
-    //    else {
     NSLog(@"Updating Status");
     
     [[TwitterClient instance] updateStatus:self.statusTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
@@ -92,6 +82,7 @@
         NSLog(@"Twitter hates this update so much it's blocking your post: %@", error);
     }];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
