@@ -10,4 +10,6 @@
 
 @interface TimelineViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+- (id)initWithShowMentions:(BOOL)showMentions;
+
 @end

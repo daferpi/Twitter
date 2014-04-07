@@ -29,7 +29,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.viewControllers = @[[[ProfileViewController alloc] init], [[TimelineViewController alloc] init], [[TimelineViewController alloc] init]];
+        
+        // non-working version: self.viewControllers = @[[[ProfileViewController alloc] init], [[TimelineViewController alloc] init], [[TimelineViewController alloc] init]];
+        self.viewControllers = @[[[ProfileViewController alloc] init], [[TimelineViewController alloc] initWithShowMentions:NO], [[TimelineViewController alloc] initWithShowMentions:YES]];
+        
     }
     return self;
 }
@@ -73,8 +76,11 @@
     UIView *timelineView = ((UIViewController *)self.viewControllers[1]).view;
     timelineView.frame = self.containerView.frame;
     
+    UIView *mentionsView = ((UIViewController *)self.viewControllers[2]).view;
+    mentionsView.frame = self.containerView.frame;
     
     [self.containerView addSubview:profileView];
+    [self.containerView addSubview:mentionsView];
     [self.containerView addSubview:timelineView];
 }
 
@@ -122,8 +128,8 @@
 - (IBAction)onMentionsButton:(id)sender
 {
     NSLog(@"mention button");
-    UIView *timelineView = ((UIViewController *)self.viewControllers[1]).view;
-    [self.containerView bringSubviewToFront:timelineView];
+    UIView *mentionsView = ((UIViewController *)self.viewControllers[2]).view;
+    [self.containerView bringSubviewToFront:mentionsView];
 }
 
 - (void)onSignOutButton

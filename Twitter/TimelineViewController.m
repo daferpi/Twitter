@@ -37,8 +37,19 @@
         self.title = @"Twitter";
         
         self.showMentions = NO;
-        [self reload];
+        //[self reload];
 
+    }
+    return self;
+}
+
+- (id)initWithShowMentions:(BOOL)showMentions
+{
+    self = [super init];
+    if (self) {
+        self.title = @"Mentions";
+        self.showMentions = showMentions;
+        [self reload];
     }
     return self;
 }
