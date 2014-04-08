@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="followersCountLabel" destination="bcE-ma-8rZ" id="p1B-qO-llq"/>
                 <outlet property="followingCountLabel" destination="w4Y-vp-Gyn" id="1Hz-fC-NUh"/>
+                <outlet property="tableView" destination="8dh-uv-hv0" id="vDL-vk-jTi"/>
                 <outlet property="tweetCountLabel" destination="1U1-lF-dQC" id="pL7-uI-kyJ"/>
                 <outlet property="twitterHandleLabel" destination="ogF-H1-pwn" id="Ztc-Zm-YKd"/>
                 <outlet property="userProfileBackgroundImage" destination="KaF-wD-EFR" id="x1B-3A-0gP"/>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-wD-EFR">
-                    <rect key="frame" x="0.0" y="36" width="320" height="223"/>
+                    <rect key="frame" x="0.0" y="43" width="320" height="216"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jhG-3z-Qsy">
@@ -81,6 +82,11 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-uv-hv0">
+                    <rect key="frame" x="0.0" y="337" width="320" height="231"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
