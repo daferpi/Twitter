@@ -16,3 +16,4 @@ I know that is possible move the view to remove this black bar, but i think that
 /*************** after the test in home ********************/
 
 - Fixed problem with navigation bar and tableview position (is a problem with launch Screen file that must be fixed in configuration to show the screen with correct size)
+- Now the navigation controller is working fine in the list and also to show details

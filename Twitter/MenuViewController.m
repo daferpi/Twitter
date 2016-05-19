@@ -31,7 +31,15 @@
     if (self) {
         
         // non-working version: self.viewControllers = @[[[ProfileViewController alloc] init], [[TimelineViewController alloc] init], [[TimelineViewController alloc] init]];
-        self.viewControllers = @[[[ProfileViewController alloc] init], [[TimelineViewController alloc] initWithShowMentions:NO], [[TimelineViewController alloc] initWithShowMentions:YES]];
+        
+        TimelineViewController *timelineVC = [[TimelineViewController alloc] initWithShowMentions:NO];
+        UINavigationController *timelineViewController = [[UINavigationController alloc] initWithRootViewController:timelineVC];
+        
+        TimelineViewController *timelineMentionsVC = [[TimelineViewController alloc] initWithShowMentions:YES];
+        UINavigationController *timelineViewMentionsController = [[UINavigationController alloc] initWithRootViewController:timelineMentionsVC];
+        
+        
+        self.viewControllers = @[[[ProfileViewController alloc] init], timelineViewController, timelineViewMentionsController];
         
     }
     return self;

@@ -150,8 +150,9 @@
     
     TweetViewController *tvc = [[TweetViewController alloc] initWithNibName:@"TweetViewController" andModel:tweet bundle:nil];
     
-    UINavigationController *navigationVC = [[UINavigationController alloc] initWithRootViewController: tvc];
-    [self presentViewController:navigationVC animated:YES completion:nil];
+    //UINavigationController *navigationVC = [[UINavigationController alloc] init];
+    //[self presentViewController:navigationVC animated:YES completion:nil];
+    [self.navigationController pushViewController:tvc animated:YES];
     
 }
 
