@@ -4,4 +4,6 @@
 - Add new font type to body
 - Modify font type in detail
 - Problem to align images because the images not show for error in api call (is required fixed this error in test process?)
-- Add pagination with infinity scroll (here is required add some control flow to check when a call is not finished not execute a new call using a flag for example and add a label or a display that indicate that the data is loading)
+-  (here is required add some control flow to check when a call is not finished not execute a new call using a flag for example and add a label or a display that indicate that the data is loading)
+- UI + API not complete in the time for the test. I can finish the test in the home and you can review the result
+- Core data not complete in the time for the test. I have a stack of core data and i can complete the flow in home
