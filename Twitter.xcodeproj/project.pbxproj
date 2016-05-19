@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184E05EA1CEE0DDC0006AF66 /* MorrisRoman-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 184E05E81CEE0DDC0006AF66 /* MorrisRoman-Black.ttf */; };
+		184E05EB1CEE0DDC0006AF66 /* MorrisRomanAlternate-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 184E05E91CEE0DDC0006AF66 /* MorrisRomanAlternate-Black.ttf */; };
 		3B012AA4B07C4947A2521F87 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8CD23DA43F4B9A98D499A9 /* libPods.a */; };
 		EB26124418F21977004FC7B9 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB26124218F21977004FC7B9 /* MenuViewController.m */; };
 		EB26124518F21977004FC7B9 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB26124318F21977004FC7B9 /* MenuViewController.xib */; };
@@ -51,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		1038854C379247958CC5B9D1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		184E05E81CEE0DDC0006AF66 /* MorrisRoman-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MorrisRoman-Black.ttf"; sourceTree = "<group>"; };
+		184E05E91CEE0DDC0006AF66 /* MorrisRomanAlternate-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MorrisRomanAlternate-Black.ttf"; sourceTree = "<group>"; };
 		9C8CD23DA43F4B9A98D499A9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB26124118F21977004FC7B9 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		EB26124218F21977004FC7B9 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		EB9DBD3318E539FA0054D457 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				184E05E81CEE0DDC0006AF66 /* MorrisRoman-Black.ttf */,
+				184E05E91CEE0DDC0006AF66 /* MorrisRomanAlternate-Black.ttf */,
 				EB9DBD5F18E53BB50054D457 /* API */,
 				EB9DBD5C18E53B530054D457 /* Models */,
 				EB9DBD5E18E53BAD0054D457 /* Views */,
@@ -330,6 +336,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184E05EA1CEE0DDC0006AF66 /* MorrisRoman-Black.ttf in Resources */,
+				184E05EB1CEE0DDC0006AF66 /* MorrisRomanAlternate-Black.ttf in Resources */,
 				EB9DBD6F18E53C270054D457 /* TweetViewController.xib in Resources */,
 				EB9DBD3818E539FA0054D457 /* InfoPlist.strings in Resources */,
 				EB72D2EA18EE51B7007A9CC6 /* ProfileViewController.xib in Resources */,

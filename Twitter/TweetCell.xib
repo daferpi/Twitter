@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="MorrisRoman-Black.ttf">
+            <string>MorrisRoman-Black</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -42,7 +47,7 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="225" id="qvL-PH-eiG"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="MorrisRoman-Black" family="Morris Roman" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

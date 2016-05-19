@@ -95,12 +95,13 @@
     
     cell.statusLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.statusLabel.numberOfLines = 0;
-    cell.statusLabel.font = [UIFont systemFontOfSize:15.0];
+    cell.statusLabel.font = [UIFont fontWithName:@"MorrisRoman-Black" size:15];
     
+    CGFloat heightOffset = 55;
     UIFont *cellFont = cell.statusLabel.font;
     CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
     CGSize labelSize = [tweet.tweet_text sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
-    cell.statusLabel.frame = CGRectMake(cell.statusLabel.frame.origin.x, cell.statusLabel.frame.origin.y, labelSize.width, labelSize.height);
+    cell.statusLabel.frame = CGRectMake(cell.statusLabel.frame.origin.x, cell.statusLabel.frame.origin.y, labelSize.width, labelSize.height + heightOffset);
     cell.statusLabel.text = tweet.tweet_text;
     
     
@@ -127,13 +128,13 @@
     Tweet *tweet = self.tweets[indexPath.row];
     
     NSString *text = tweet.tweet_text;
-    UIFont *fontText = [UIFont systemFontOfSize:15.0];
+    UIFont *fontText = [UIFont fontWithName:@"MorrisRoman-Black" size:15];
     CGRect rect = [text boundingRectWithSize:CGSizeMake(235, CGFLOAT_MAX)
                                      options:NSStringDrawingUsesLineFragmentOrigin
                                   attributes:@{NSFontAttributeName:fontText}
                                      context:nil];
     
-    CGFloat heightOffset = 45;
+    CGFloat heightOffset = 55;
     return rect.size.height + heightOffset;
 }
 
