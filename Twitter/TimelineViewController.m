@@ -70,6 +70,8 @@
     [self.refreshControl addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
+    
+    
 }
 
 #pragma mark - Table view data source

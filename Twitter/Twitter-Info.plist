@@ -37,6 +37,13 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MorrisRoman-Black.ttf</string>
+		<string>MorrisRomanAlternate-Black.ttf</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LoginViewController</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -46,11 +53,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>MorrisRoman-Black.ttf</string>
-		<string>MorrisRomanAlternate-Black.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -165,7 +165,9 @@
         _menuViewController.toolbarHidden = NO;
         
         // Hide navigation bar
-        _menuViewController.navigationBarHidden = YES;
+        _menuViewController.navigationBarHidden = NO;
+        [_menuViewController.navigationBar setTranslucent:NO];
+        
     }
     
     return _menuViewController;

@@ -12,3 +12,7 @@
 I know that is possible move the view to remove this black bar, but i think that is not the right solution. I need to review this problem with more detail.
 
 - To display the detail with navigation controller is required comment the line [self presentViewController:navigationVC animated:YES completion:nil]; in didSelectRowAtIndexPath and add [self.navigationController pushViewController:navigationVC animated:YES]; but i can not execute this because i need fixed the previous problem before.
+
+/*************** after the test in home ********************/
+
+- Fixed problem with navigation bar and tableview position 
