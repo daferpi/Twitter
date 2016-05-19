@@ -2,3 +2,4 @@
 - Project running
 - Change heigth of tableview cell and also change the height of uilabel that contains the text
 - Add new font type to body
+- Modify font type in detail

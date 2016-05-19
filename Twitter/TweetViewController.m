@@ -50,6 +50,8 @@
     self.userNameLabel.text = currentTweet.twitter_handle;
     self.timestampLabel.text = currentTweet.timestamp;
     
+    self.tweetStatusLabel.font = [UIFont fontWithName:@"MorrisRoman-Black" size:15];
+    
     [self.profileImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:currentTweet.profile_image_url]] placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         self.profileImageView.image = image;
         NSLog(@"Profile Image");
