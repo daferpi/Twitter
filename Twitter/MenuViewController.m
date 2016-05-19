@@ -82,6 +82,7 @@
     [self.containerView addSubview:profileView];
     [self.containerView addSubview:mentionsView];
     [self.containerView addSubview:timelineView];
+    
 }
 
 - (void)onPan:(UIPanGestureRecognizer *)panGestureRecognizer
@@ -104,6 +105,7 @@
     // Resets the translation property for next use
     [panGestureRecognizer setTranslation:CGPointMake(0, 0) inView:self.view];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

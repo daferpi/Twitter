@@ -1,2 +1,3 @@
 - Test started
 - Project running
+- Change heigth of tableview cell and also change the height of uilabel that contains the text

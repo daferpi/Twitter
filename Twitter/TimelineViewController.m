@@ -58,6 +58,7 @@
 {
     [super viewDidLoad];
     
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -68,6 +69,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshView) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
+    
 }
 
 #pragma mark - Table view data source
@@ -84,10 +86,23 @@
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     
     // Setting cell data from Tweet object
-    cell.statusLabel.text = tweet.tweet_text;
+    //cell.statusLabel.text = tweet.tweet_text;
     cell.nameLabel.text = tweet.name;
     cell.twitterHandleLabel.text = tweet.twitter_handle;
     cell.timeStampLabel.text = tweet.relative_timestamp;
+    
+    
+    
+    cell.statusLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.statusLabel.numberOfLines = 0;
+    cell.statusLabel.font = [UIFont systemFontOfSize:15.0];
+    
+    UIFont *cellFont = cell.statusLabel.font;
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGSize labelSize = [tweet.tweet_text sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:NSLineBreakByWordWrapping];
+    cell.statusLabel.frame = CGRectMake(cell.statusLabel.frame.origin.x, cell.statusLabel.frame.origin.y, labelSize.width, labelSize.height);
+    cell.statusLabel.text = tweet.tweet_text;
+    
     
     //tap on profile for ProfileViewController
     UITapGestureRecognizer *tapgesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileOnTap:)];
@@ -102,6 +117,7 @@
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
         NSLog(@"%@", error);
     }];
+    
     
     return cell;
 }
@@ -120,6 +136,7 @@
     CGFloat heightOffset = 45;
     return rect.size.height + heightOffset;
 }
+
 
 #pragma mark - Table view delegate
 
