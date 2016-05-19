@@ -92,7 +92,6 @@
     cell.timeStampLabel.text = tweet.relative_timestamp;
     
     
-    
     cell.statusLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.statusLabel.numberOfLines = 0;
     cell.statusLabel.font = [UIFont fontWithName:@"MorrisRoman-Black" size:15];
@@ -200,6 +199,21 @@
     [self.refreshControl endRefreshing];
 }
 
+
+- (void)loadMoreSince:(int)sinceId
+{
+    NSLog(@"loadMoreSince view");
+    [[TwitterClient instance] homeTimelineWithCount:20 sinceId:sinceId maxId:0 success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"%@", response);
+        [self.tweets addObjectsFromArray:[Tweet tweetsWithArray:response]];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"!");
+    }];
+}
+
+
+
 - (void)profileOnTap:(UIGestureRecognizer *)tap
 {
     NSLog(@"Tap that");
@@ -227,6 +241,17 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - infinite scroll
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat actualPosition = scrollView.contentOffset.y;
+    CGFloat contentHeight = scrollView.contentSize.height - self.tableView.frame.size.height;
+    if (actualPosition >= contentHeight) {
+        Tweet *tweet = [self.tweets lastObject ];
+        int sinceID = [tweet.tweet_id intValue];
+        [self loadMoreSince:sinceID];
+    }
 }
 
 @end

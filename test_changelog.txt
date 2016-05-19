@@ -4,3 +4,4 @@
 - Add new font type to body
 - Modify font type in detail
 - Problem to align images because the images not show for error in api call (is required fixed this error in test process?)
+- Add pagination with infinity scroll (here is required add some control flow to check when a call is not finished not execute a new call using a flag for example and add a label or a display that indicate that the data is loading)
