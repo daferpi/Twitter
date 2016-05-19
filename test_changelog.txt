@@ -3,3 +3,4 @@
 - Change heigth of tableview cell and also change the height of uilabel that contains the text
 - Add new font type to body
 - Modify font type in detail
+- Problem to align images because the images not show for error in api call (is required fixed this error in test process?)
