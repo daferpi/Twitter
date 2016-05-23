@@ -127,5 +127,13 @@
     return [self GET:@"1.1/statuses/mentions_timeline.json" parameters:nil success:success failure:failure];
 }
 
+- (void)searchTweetWithText:(NSString *)textToSearch success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:textToSearch forKey:@"q"];
+    [self POST:@"https://api.twitter.com/1.1/search/tweets.json" parameters:params success:success failure:failure];
+}
+
 
 @end
