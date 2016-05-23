@@ -132,7 +132,7 @@
 {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:textToSearch forKey:@"q"];
-    [self POST:@"https://api.twitter.com/1.1/search/tweets.json" parameters:params success:success failure:failure];
+    [self GET:@"1.1/search/tweets.json" parameters:params success:success failure:failure];
 }
 
 

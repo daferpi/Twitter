@@ -47,6 +47,9 @@
 - (void)retweetWithTweetId:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success
                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
+//Search API
+- (void)searchTweetWithText:(NSString *)textToSearch success:(void (^)(AFHTTPRequestOperation *operation, id response))success
+                    failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 
 @end
